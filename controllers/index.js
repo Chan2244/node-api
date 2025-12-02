@@ -1,6 +1,7 @@
 const mongodb = require("../db/connect");
 const objectId = require("mongodb").ObjectId;
 
+
 const awesomeFunction = (req, res, next) => {
     res.json("Awesom Name!");
 };
@@ -21,4 +22,4 @@ const getAllStudents = async (req, res) => {
     }
 };
 
-module.exports = { awesomeFunction, tooeleTech };
+module.exports = { awesomeFunction, tooeleTechFunction, getAllStudents };
