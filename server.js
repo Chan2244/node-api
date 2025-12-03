@@ -3,9 +3,16 @@ const cors = require("cors");
 const mongodb = require("./db/connect");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-app.use(cors()).use("/", require("./routes"));
+app
+.use(cors())
+.use(express.json())
+.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    next();
+})
+.use("/", require("./routes"));
 
 mongodb.initDb((err) => {
     if (err) {
